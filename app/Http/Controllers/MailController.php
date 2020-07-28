@@ -37,12 +37,7 @@ class MailController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $data = $this->getData($request);
@@ -53,15 +48,6 @@ class MailController extends Controller
     }
 
 
-    public function storeCart(Request $request){
-        $data = $this->getData($request);
-//        new App\Food()
-        if($data['cartable_type'] == 'Errand'){
-            $data['price'] = 200;
-        }
-        $cart = Cart::create($data);
-        return response()->json($cart);
-    }
 
     public function destroy(Request $request){
         $cart = Cart::destroy($request->id);
